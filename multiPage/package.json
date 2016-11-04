@@ -1,15 +1,16 @@
 {
-  "name": "webpack-config-multi-page",
+  "name": "widgets",
   "version": "1.0.0",
-  "description": "multi page config using webpack",
+  "description": "website widgets",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --config webpack.static.config.js",
+    "static-build": "NODE_ENV=production webpack --config webpack.static.config.js",
+    "project-build": "NODE_ENV=production webpack --config webpack.project.config.js"
   },
   "author": "alienyu",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -22,6 +23,7 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "zepto": "^1.2.0"
   }
 }

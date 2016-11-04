@@ -1,0 +1,55 @@
+.title {
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    .calendar {
+        float: left;
+        border: 1px solid #7BB1DD;
+        border-radius: 5px;
+        width: 85%;
+        .date {
+            float: left;
+            text-align: center;
+            width: 50%;
+            border-radius: 5px 0px 0px 5px;
+            background-color: #fff;
+            color: #75ACDC;
+            &.active {
+                background-color: #3187CD;
+                color: #fff;
+            }
+        }
+        .time {
+            float: left;
+            text-align: center;
+            width: 50%;
+            border-radius: 0px 5px 5px 0px;
+            background-color: #fff;
+            color: #75ACDC;
+            &.active {
+                background-color: #3187CD;
+                color: #fff;
+            }
+        }
+    }
+    .confirm {
+        float: left;
+        width: 14%;
+        text-align: center;
+        color: #3F8FD0;
+
+    }
+}
+.bottom {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}

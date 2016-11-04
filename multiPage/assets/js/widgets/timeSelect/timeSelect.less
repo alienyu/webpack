@@ -1,0 +1,48 @@
+.date_roll_mask {
+  -webkit-mask: -webkit-gradient(linear, 0% 40%, 0% 0%, from(#debb47), to(rgba(36, 142, 36, 0)));
+  -webkit-mask: -webkit-linear-gradient(bottom, #debb47 50%, rgba(36, 142, 36, 0));
+  padding: 0 0 36px 0;
+  .time_roll {
+    position: relative;
+    display: -webkit-box;
+    width: 100%;
+    height: 174px;
+    overflow: hidden;
+    font-weight: bold;
+    background-color: transparent;
+    -webkit-mask: -webkit-gradient(linear, 0% 50%, 0% 100%, from(#debb47), to(rgba(36, 142, 36, 0)));
+    -webkit-mask: -webkit-linear-gradient(top, #debb47 50%, rgba(36, 142, 36, 0));
+    .hh_select,.mm_select {
+      font-size: 22px;
+      height: 100%;
+      float: left;
+      background-color: transparent;
+      position: relative;
+      overflow: hidden;
+      -webkit-box-flex: 4;
+      .gear {
+        float: left;
+        position: absolute;
+        z-index: 9902;
+        width: 200px;
+        .tooth {
+          height: 40px;
+          line-height: 40px;
+          text-align: center
+        }
+      }
+    }
+    .date_grid {
+      position: absolute;
+      top: 60px;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+      height: 40px;
+      margin: 0;
+      box-sizing: border-box;
+      z-index: 0;
+    }
+  }
+}
