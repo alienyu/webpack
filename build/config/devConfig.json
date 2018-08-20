@@ -1,0 +1,9 @@
+{
+    "host": "",
+    "projectName": "demo",
+    "deployContent": {
+        "mobile": [],
+        "web": []
+    },
+    "mode": "local"
+  }
