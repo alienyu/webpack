@@ -1,6 +1,7 @@
 function loadProjectConf(envConf) {
     let webpack = require('webpack');
     let merge = require("webpack-merge");
+    let projectName = envConf.projectName;
     let projectConf = {};
     //基础配置文件
     let bascConf = require(`${process.cwd()}/build/env/webpack.base.js`);
@@ -12,7 +13,7 @@ function loadProjectConf(envConf) {
     })
     console.log("this is project")
     let commonEntry = {entry :{}};
-    let entryKey = `common/${envConf}-vendor`;
+    let entryKey = `common/${projectName}-vendor`;
     commonEntry.entry[entryKey] = ['react', 'react-dom', 'jquery', 'antd', 'vue', 'vue-router', 'vue-resource', 'vuex', 'vant'];
     //合并两端配置文件
     projectConf = merge(bascConf, {
@@ -26,7 +27,7 @@ function loadProjectConf(envConf) {
         },
         plugins: [
             new webpack.optimize.CommonsChunkPlugin({
-                name: `common/${envConf.projectName}-vendor`,
+                name: `common/${projectName}-vendor`,
                 minChunks:Infinity
             }),
             new webpack.ProvidePlugin({

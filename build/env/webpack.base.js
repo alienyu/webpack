@@ -90,7 +90,7 @@ function loadBizAssets(oriConf) {
         let pageList = deployContent[platform].length > 0 ? deployContent[platform] : require(`${process.cwd()}/biz/${platform}/pageList.json`);
         pageList.map(page => {
             oriConf.module.loaders.push({
-                test: new RegExp(`\/${platform}\/page\/${page}\/.*\.(png|jpg|gif|jpeg)$`),
+                test: new RegExp(`${platform}.*${page}.*\.(png|jpg|gif|jpeg)$`),
                 loader: `url-loader?limit=8192&name=${platform}/${page}/assets/imgs/[hash].[ext]`
             })
         })
