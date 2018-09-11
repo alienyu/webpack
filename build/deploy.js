@@ -18,7 +18,7 @@ if(fs.existsSync(oldName)) {
 //修改html对于favicon文件的引用路径
 let platformList = Object.keys(deployContent);
 platformList.map(platform => {
-    let pageList = deployContent[platform].length > 0 ? deployContent[platform] : require(`${process.cwd()}/biz/${platform}/pageList.json`);
+    let pageList = deployContent[platform].length > 0 ? deployContent[platform] : require(`${process.cwd()}/project/${platform}/pageList.json`);
     pageList.map(page => {
         var fileName = `${process.cwd()}/${projectName}-output/${platform}/${page}/${page}.html`
         var htmlContent = fs.readFileSync(fileName, 'utf-8');

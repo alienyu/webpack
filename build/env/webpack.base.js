@@ -87,7 +87,7 @@ function loadBizAssets(oriConf) {
     // }
     let platformList = Object.keys(deployContent);
     platformList.map(platform => {
-        let pageList = deployContent[platform].length > 0 ? deployContent[platform] : require(`${process.cwd()}/biz/${platform}/pageList.json`);
+        let pageList = deployContent[platform].length > 0 ? deployContent[platform] : require(`${process.cwd()}/project/${platform}/pageList.json`);
         pageList.map(page => {
             oriConf.module.loaders.push({
                 test: new RegExp(`${platform}.*${page}.*\.(png|jpg|gif|jpeg)$`),

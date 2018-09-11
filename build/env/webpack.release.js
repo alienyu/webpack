@@ -5,7 +5,7 @@ let merge = require("webpack-merge");
 let releaseConf = require("../config/releaseConfig.json");
 let projectName = releaseConf.projectName;
 let HtmlWebpackPlugin = require('html-webpack-plugin');
-let projectConf = require(`${process.cwd()}/biz/webpackConfig.project.js`)(releaseConf);
+let projectConf = require(`${process.cwd()}/project/webpackConfig.project.js`)(releaseConf);
 console.log("this is release")
 
 let envConf = merge(projectConf, {
@@ -30,7 +30,7 @@ function runtime(conf) {
     let htmlName = pageArr.pop(); //实际单页文件入口html(pageName)
     let pagePath = pageArr.length > 0 ? pageArr.join("/") : ""; //页面路径(pagePathA/pagePathB)
     var entryID = `${platform}/${pagePath}${htmlName}/${htmlName}`; // platform/pagePath/pageName
-    var fileRoute = `${process.cwd()}/biz/${platform}/page/${pagePath}${htmlName}`; //biz/platform/page/pagePath/pageName
+    var fileRoute = `${process.cwd()}/project/${platform}/page/${pagePath}${htmlName}`; //biz/platform/page/pagePath/pageName
     envConf.entry[entryID] = `${fileRoute}/${htmlName}.js`; 
     //biz/platform/page/pagePath/pageName.js
     envConf.plugins.push(new HtmlWebpackPlugin({
@@ -38,7 +38,7 @@ function runtime(conf) {
         filename: entryID + ".html",
         //生成的html存放路径，相对于path
         template: `${fileRoute}/${htmlName}.html`,
-        favicon: `${process.cwd()}/biz/common/static/imgs/favicon.png`,
+        favicon: `${process.cwd()}/project/common/static/imgs/favicon.png`,
         //js插入的位置，true/'head'/'body'/false
         inject: 'body',
         hash: true, //为静态资源生成hash值
@@ -56,7 +56,7 @@ function loadConfig() {
     let deployContent = releaseConf.deployContent;
     let platformList = Object.keys(deployContent);
     platformList.map(platform => {
-        let pageList = deployContent[platform].length > 0 ? deployContent[platform] : require(`${process.cwd()}/biz/${platform}/pageList.json`);
+        let pageList = deployContent[platform].length > 0 ? deployContent[platform] : require(`${process.cwd()}/project/${platform}/pageList.json`);
         pageList.map(page => {
             runtime({
                 platform,
